@@ -53,7 +53,7 @@ const Hero = () => {
 
 				<div className="mt-[76%] md:mt-0 pb-[10px] md:pb-0">
 					<div className="flex flex-col gap-y-[23px] md:w-[50%] my-[4%]">
-						<h1 className=" text-4xl md:text-[48px] font-gordita-bold leading-[51px] md:leading-[68px] bg-gradient-to-b from-[rgba(248,248,248,0.2)]">
+						<h1 className=" text-4xl md:text-[48px] font-gordita-bold leading-[51px] md:leading-[68px] bg-gradient-to-b  md:bg-none from-[rgba(248,248,248,0.2)]">
 							From The <span className="text-runam-secondary">Market</span> To
 							Your Doorstep In An Hour
 						</h1>
@@ -82,7 +82,11 @@ const Hero = () => {
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 								placeholder="Enter your email address"
-								className="rounded-[6px] px-[20px] h-[50px] w-[90%] max-w-[415px] runam-box-shadow placeholder:text-[12px] placeholder:font-gordita placeholder:text-black	"
+								className={
+									emailError
+										? "rounded-[6px] px-[20px] h-[50px] w-[90%] max-w-[415px] runam-box-shadow placeholder:text-[12px] placeholder:font-gordita placeholder:text-black border-solid border-2 border-red-500"
+										: "rounded-[6px] px-[20px] h-[50px] w-[90%] max-w-[415px] runam-box-shadow placeholder:text-[12px] placeholder:font-gordita placeholder:text-black	"
+								}
 							/>
 							<button
 								onClick={onClick}
