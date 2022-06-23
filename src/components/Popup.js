@@ -38,7 +38,9 @@ const Popup = ({ open, onClose }) => {
 						</a>
 					</div>
 					<div className="rounded-full bg-[#FAFAFA] w-[60px] h-[60px] flex items-center justify-center">
-						<img src={Twitter} alt="" />
+						<a href="https://twitter.com/intent/tweet?text=Hello%20world">
+							<img src={Twitter} alt="" />
+						</a>
 					</div>
 				</div>
 			</div>

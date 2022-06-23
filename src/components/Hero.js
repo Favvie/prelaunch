@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../assets/RunAm.svg";
 import Popup from "./Popup";
 import axios from "axios";
 import validator from "validator";
+import Spinner from "./Spinner";
 
 const Hero = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const [email, setEmail] = useState("");
 	const [emailError, setEmailError] = useState("");
+	const [loading, setLoading] = useState(false);
 
 	const onClick = (e) => {
 		e.preventDefault();
@@ -19,10 +20,12 @@ const Hero = () => {
 		// when there is an error, the alert is displayed for 3 seconds
 		setTimeout(() => {
 			setEmailError("");
-		}, 2000);
+		}, 4000);
 	}, [emailError]);
+
 	const onSubscribe = async () => {
 		if (validator.isEmail(email)) {
+			setLoading(true);
 			try {
 				const response = await axios.post(
 					"https://api.runamhq.com/api/v1/email",
@@ -35,9 +38,11 @@ const Hero = () => {
 					setOpenModal(true);
 				}
 				console.log(data);
+				setLoading(false);
 			} catch (error) {
 				// console.error(error.response.data.message);
 				setEmailError(error.response.data.message);
+				setLoading(false);
 			}
 		} else {
 			setEmailError("Enter valid email address!");
@@ -48,7 +53,11 @@ const Hero = () => {
 		<div className="w-screen sm:bg-cover bg-contain h-screen bg-mobile-bg sm:bg-hero-pattern bg-no-repeat">
 			<div className="ml-[5%]">
 				<nav className="md:py-[50px] py-[40px]">
-					<img src={Logo} alt="" className="w-[23.4%] md:w-[8.5%]" />
+					<img
+						src="/assets/RunAm.svg"
+						alt=""
+						className="w-[23.4%] md:w-[8.5%]"
+					/>
 				</nav>
 
 				<div className="mt-[76%] md:mt-0 pb-[10px] md:pb-0">
@@ -75,7 +84,9 @@ const Hero = () => {
 						)}
 						<form
 							action=""
-							className="flex flex-col md:flex-row gap-[10px] mt-1 "
+							className={`flex flex-col md:flex-row ${
+								loading ? "space-x-[50px]" : "space-x-[10px]"
+							} mt-1  items-center`}
 						>
 							<input
 								type="email"
@@ -84,16 +95,19 @@ const Hero = () => {
 								placeholder="Enter your email address"
 								className={
 									emailError
-										? "rounded-[6px] px-[20px] h-[50px] w-[90%] max-w-[415px] runam-box-shadow placeholder:text-[12px] placeholder:font-gordita placeholder:text-black border-solid border-2 border-red-500"
-										: "rounded-[6px] px-[20px] h-[50px] w-[90%] max-w-[415px] runam-box-shadow placeholder:text-[12px] placeholder:font-gordita placeholder:text-black	"
+										? "input border-solid border-2 border-red-500"
+										: "input"
 								}
 							/>
-							<button
-								onClick={onClick}
-								className="rounded-[6px] bg-runam-secondary text-white w-[124px] h-[50px] runam-box-shadow cursor-pointer self-center mt-6 md:mt-0"
-							>
-								Notify Me
-							</button>
+							{!loading && (
+								<button
+									onClick={onClick}
+									className="rounded-[6px] bg-runam-secondary text-white w-[124px] h-[50px] runam-box-shadow cursor-pointer self-center mt-6 md:mt-0"
+								>
+									Notify Me
+								</button>
+							)}
+							{loading && <Spinner />}
 						</form>
 					</div>
 				</div>
