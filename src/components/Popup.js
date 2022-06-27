@@ -33,12 +33,22 @@ const Popup = ({ open, onClose }) => {
 
 				<div className="flex gap-6">
 					<div className="rounded-full bg-[#FAFAFA] w-[60px] h-[60px] flex items-center justify-center">
-						<a href="https://wa.me/send?text=This%20is%20a%20test%20run">
+						<a
+							href={`https://wa.me/send?text=${`%F0%9F%98%80`}What%20am%20I%20seeing?%0AThis%20crazy%20company%20is%20making%20a%20bet.%0A
+
+They%20bring%20anything%20you%20want%20from%20the%20market%20to%20your%20door%20in%201%20hour.%0ACheck%20them%20out:%20${"https://runamhq.com"}
+`}
+						>
 							<img src={WhatsApp} alt="" />
 						</a>
 					</div>
 					<div className="rounded-full bg-[#FAFAFA] w-[60px] h-[60px] flex items-center justify-center">
-						<a href="https://twitter.com/intent/tweet?text=Hello%20world">
+						<a
+							href={`https://twitter.com/intent/tweet?text=
+							Hats%20off%20to%20you%20guys%20that%20are%20ok%20with%20wasting%20time%20in%20traffic%20or%20getting%20touched%20by%20random%20strangers%0A
+							Found%20these%20guys%20that%20deliver%20food%20and%20groceries%20from%20the%20market%20to%20your%20house%20in%20minutes.%0A 
+							Check%20them%20out:%20${"https://runamhq.com"}`}
+						>
 							<img src={Twitter} alt="" />
 						</a>
 					</div>
