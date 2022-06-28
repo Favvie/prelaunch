@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Spinner from "./Spinner";
 import axios from "axios";
+import Check from "../assets/check.png";
+import Failed from "../assets/failed-icon.jpg";
 
 const Confirmation = () => {
 	let params = useParams();
-	let navigate = useNavigate();
 
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState({ visible: false, title: "" });
@@ -43,7 +44,7 @@ const Confirmation = () => {
 				<div className="home bg-runam-primary">
 					<div className="containers w-[90%] text-center max-w-[700px] m-auto flex flex-col justify-center items-center h-[250px] bg-white ">
 						<div className="w-[10%]">
-							<img src="check.png" alt="" className="w-[100%]" />
+							<img src={Check} alt="" className="w-[100%]" />
 						</div>
 						<h1 className="text-bold">Your verification is complete!</h1>
 						<p className="pt-[15px] text-[18px]">
@@ -56,7 +57,7 @@ const Confirmation = () => {
 					<div className="home bg-red-400">
 						<div className="containers w-[90%] text-center max-w-[700px] m-auto flex flex-col justify-center items-center h-[250px] bg-white ">
 							<div className="w-[10%]">
-								<img src="check.png" alt="" className="w-[100%]" />
+								<img src={Failed} alt="" className="w-[100%]" />
 							</div>
 							<h1 className="text-bold text-[56px]">{error.title}</h1>
 
