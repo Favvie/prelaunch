@@ -40,7 +40,7 @@ const Confirmation = () => {
 				</div>
 			)}
 			{!loading && !error.visible ? (
-				<div className="home bg-[rgba(70, 211, 190, 0.57)]">
+				<div className="home bg-runam-primary">
 					<div className="containers w-[90%] text-center max-w-[700px] m-auto flex flex-col justify-center items-center h-[250px] bg-white ">
 						<div className="w-[10%]">
 							<img src="check.png" alt="" className="w-[100%]" />
