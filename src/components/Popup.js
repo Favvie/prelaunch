@@ -34,7 +34,7 @@ const Popup = ({ open, onClose }) => {
 				<div className="flex gap-6">
 					<div className="rounded-full bg-[#FAFAFA] w-[60px] h-[60px] flex items-center justify-center">
 						<a
-							href={`https://wa.me/send?text=${`%F0%9F%98%82 %F0%9F%98%82 %F0%9F%98%82`}%0AWhat%20am%20I%20seeing?%0AThis%20crazy%20company%20is%20making%20a%20bet.%0A
+							href={`https://api.whatsapp.com/send?text=${`%F0%9F%98%82 %F0%9F%98%82 %F0%9F%98%82`}%0AWhat%20am%20I%20seeing?%0AThis%20crazy%20company%20is%20making%20a%20bet.%0A
 
 They%20bring%20anything%20you%20want%20from%20the%20market%20to%20your%20door%20in%201%20hour.%0ACheck%20them%20out:%20${"https://runamhq.com"}
 `}

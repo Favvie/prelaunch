@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
 @layer base {
 	@font-face {
 		font-family: "Gordita Regular";
@@ -226,3 +228,40 @@ body {
 			translate(0, calc(var(--translation) * 1.5%));
 	}
 }
+
+/*--------------------------confirmation page css-----------------------------*/
+.home {
+	font-family: "Open Sans", sans-serif;
+
+	height: 100vh;
+	display: grid;
+	align-items: center;
+}
+/* 
+.check {
+	width: 10%;
+}
+.check img {
+	width: 100%;
+}
+
+.containers {
+	width: 90%;
+	text-align: center;
+	max-width: 700px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 250px;
+	background-color: white;
+}
+
+.container h1 {
+	font-weight: bold;
+}
+p {
+	padding-top: 15px;
+	font-size: 18px;
+} */
